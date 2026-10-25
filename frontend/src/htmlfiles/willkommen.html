@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="general_style.css">
+    <title>SV Lollar – App</title>
+</head>
+<body>
+<!-- Wilkommen-Seite -->
+<div id="app" style="display: flex;">
+    <div class="sidebar">
+        <div>
+            <h2>SV Lollar</h2>
+            <ul>
+                <li onclick="loadPage('kasse')">Kasse</li>
+                <li onclick="loadPage('Vorstand')"> Vorstand </li>
+                <li onclick="loadPage('Tagesabschluss')">Tagesabschluss</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="content" id="mainContent">
+        <h1>Willkommen im Digitalen Schützenverein</h1>
+        <p>Wähle einen Menüpunkt auf der linken Seite.</p>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal-overlay" id="modalOverlay">
+        <div class="modal">
+            <h2 id="modalTitle"></h2>
+            <p>Hier werden weitere Interfaces und Formulare entwickelt.</p>
+            <button onclick="closeModal()">Schließen</button>
+        </div>
+    </div>
+</div>
+
+<script src="../javascriptfiles/main.js" defer></script>
+</body>
+</html>

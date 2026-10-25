@@ -1,0 +1,48 @@
+//PRODUKTE.http
+### Login-Test
+POST https://localhost:3002/login
+Content-Type: application/json
+
+{
+  "username": "admin",
+  "password": "{{password}}"
+}
+
+### Login-Test
+POST https://localhost:3002/logout
+
+### Variables
+@id=7
+### Produkte GET
+GET https://localhost:3002/produkte
+
+### Produkte POST
+POST https://localhost:3002/produkte
+Content-Type: application/json
+
+{
+  "name": "Test",
+  "preis": 2,
+  "kategorie": "Snack"
+}
+
+### Produkte ID GET
+GET https://localhost:3002/produkte/{{id}}
+
+### Produkte ID PUT
+PUT https://localhost:3002/produkte/{{id}}
+Content-Type: application/json
+
+{
+  "name": "Test 2",
+  "preis": 2,
+  "kategorie": "Snack",
+  "aktiv": "true"
+}
+
+### Produkte ID DELETE (deaktivate)
+DELETE https://localhost:3002/produkte/{{id}}
+
+### Produkte TYPE GET
+GET https://localhost:3002/produkte/type/Drink
+

@@ -1,0 +1,42 @@
+//VERKAEUFE.http
+### Login-Test
+POST https://localhost:3002/login
+Content-Type: application/json
+
+{
+  "username": "admin",
+  "password": "{{password}}"
+}
+
+### Login-Test
+POST https://localhost:3002/logout
+
+### Variables
+@verkaufsid = 5
+### GET Verkaeufe
+GET https://localhost:3002/verkaeufe
+
+/### POST Verkaeufe
+POST https://localhost:3002/verkaeufe
+Content-Type: application/json
+
+{
+  "anwesenheitsid":  1,
+  "produktid":  1,
+  "menge":  1,
+  "rabatt": 0
+}
+
+
+### GET Verkaeufer Member
+GET https://localhost:3002/verkaeufe/{{verkaufsid}}
+
+### PUT Veraeufe Member
+PUT https://localhost:3002/verkaeufe/{{verkaufsid}}
+Content-Type: application/json
+
+{
+  "produktid":  1,
+  "menge":  30,
+  "rabatt": 0
+}

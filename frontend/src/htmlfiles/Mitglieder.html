@@ -1,0 +1,15 @@
+<div class="mitglieder">
+    <h2>Mitgliederverwaltung</h2>
+    <form id="mitgliedForm" onsubmit="vorstand.addMitglied(event)">
+        <label>Name:</label>
+        <input type="text" id="mitgliedName" required />
+        <label>Vorname:</label>
+        <input type="text" id="mitgliedVorname" required />
+        <button type="submit">Hinzufügen</button>
+    </form>
+
+    <table id="mitgliederTabelle">
+        <thead><tr><th>Name</th><th>Vorname</th></tr></thead>
+        <tbody></tbody>
+    </table>
+</div>

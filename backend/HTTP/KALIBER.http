@@ -1,0 +1,39 @@
+//KALIBER.http
+### Login-Test
+POST https://localhost:3002/login
+Content-Type: application/json
+
+{
+  "username": "admin",
+  "password": "{{password}}"
+}
+
+### Login-Test
+POST https://localhost:3002/logout
+
+### Variables
+@id = 1
+### GET Kaliber
+GET https://localhost:3002/kaliber
+
+### POST Kaliber
+POST https://localhost:3002/kaliber
+Content-Type: application/json
+
+{
+  "bezeichnung":  "KK",
+  "gebuehrMitglied": 2,
+  "gebuehrGastZuschlag": 2
+}
+
+### GET Kaliber ID
+GET https://localhost:3002/kaliber/{{id}}
+
+### PUT Kaliber ID
+
+PUT https://localhost:3002/kaliber/{{id}}
+Content-Type: application/json
+
+{
+  bezeichnung, gebuehrMitglied, gebuehrGastZuschlag
+}

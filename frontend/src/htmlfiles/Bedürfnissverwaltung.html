@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!-- Bedürfnisverwaltung -->
+<div id="beduerfnisse" class="tab-content" style="display:none">
+    <div class="kassendienst-header">
+        <h2>Bedürfnisverwaltung</h2>
+        <button class="add-needs-button" onclick="toggleNeedsForm()">+ Bedürfnis hinzufügen</button>
+    </div>
+
+    <form id="needs-form" onsubmit="addNeed(event)" style="display:none">
+        <label for="need">Bedürfnis:</label>
+        <input type="text" id="need" required>
+        <button type="submit">Speichern</button>
+    </form>
+
+    <ul id="needs-list">
+        <!-- Dynamisch gefüllt -->
+    </ul>
+</div>
+</div>
+
+<script>
+    function switchTab(tabId) {
+        document.querySelectorAll('.tab-content').forEach(el => el.style.display = 'none');
+        document.getElementById(tabId).style.display = 'block';
+    }
+
+    function toggleForm() {
+        const form = document.getElementById('member-form');
+        form.style.display = form.style.display === 'block' ? 'none' : 'block';
+    }
+
+    function addMember(event) {
+        event.preventDefault();
+        const name = document.getElementById('name').value;
+        const vorname = document.getElementById('vorname').value;
+        const tableBody = document.getElementById('members-body');
+        const row = document.createElement('tr');
+
+        [name, vorname].forEach(value => {
+            const cell = document.createElement('td');
+            cell.textContent = value;
+            row.appendChild(cell);
+        });
+
+        tableBody.appendChild(row);
+        document.getElementById('member-form').reset();
+        toggleForm();
+    }
+
+    function toggleNeedsForm() {
+        const form = document.getElementById('needs-form');
+        form.style.display = form.style.display === 'block' ? 'none' : 'block';
+    }
+
+    function addNeed(event) {
+        event.preventDefault();
+        const need = document.getElementById('need').value;
+        const list = document.getElementById('needs-list');
+        const item = document.createElement('li');
+        item.textContent = need;
+        list.appendChild(item);
+        document.getElementById('needs-form').reset();
+        toggleNeedsForm();
+    }
+</script>
+</body>
+</html>

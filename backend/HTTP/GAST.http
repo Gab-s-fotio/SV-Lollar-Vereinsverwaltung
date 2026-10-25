@@ -1,0 +1,29 @@
+//GAST.http
+### Login-Test
+POST https://localhost:3002/login
+Content-Type: application/json
+
+{
+  "username": "admin",
+  "password": "{{password}}"
+}
+
+###Variables
+@id=3
+### Login-Test
+POST https://localhost:3002/logout
+
+### GET Gast
+GET https://localhost:3002/gaeste
+
+### POST Gast
+POST https://localhost:3002/gaeste
+Content-Type: application/json
+
+{
+  "vorname": "GastPeter",
+  "nachname": "Meier"
+}
+
+### GET Gast ID
+GET https://localhost:3002/gaeste/{{id}}

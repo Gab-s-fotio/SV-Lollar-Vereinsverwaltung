@@ -1,0 +1,29 @@
+//MITGLIEDER.http
+### Login-Test
+POST https://localhost:3002/login
+Content-Type: application/json
+
+{
+  "username": "admin",
+  "password": "{{password}}"
+}
+
+### Variables
+@id=2
+### Login-Test
+POST https://localhost:3002/logout
+
+### GET Mitglieder
+GET https://localhost:3002/mitglieder
+
+### POST Mitglied
+POST https://localhost:3002/mitglieder
+Content-Type: application/json
+
+{
+  "vorname": "Peter",
+  "nachname": "Meier"
+}
+
+### GET Mitglied ID
+GET https://localhost:3002/mitglieder/{{id}}

@@ -1,0 +1,21 @@
+.vorstand-menu {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.vorstand-menu button {
+    padding: 1rem;
+    background-color: #007bff;
+    border: none;
+    color: white;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+.vorstand-menu button:hover {
+    background-color: #0056b3;
+}

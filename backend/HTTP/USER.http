@@ -1,0 +1,78 @@
+//USER.http
+### Login-Test
+POST https://localhost:3002/login
+Content-Type: application/json
+
+{
+  "username": "admin",
+  "password": "{{password}}"
+}
+
+### Login-Test
+POST https://localhost:3002/logout
+
+### GET Users
+GET https://localhost:3002/users
+
+### GET User Details
+GET https://localhost:3002/users/admin
+
+### POST new User
+POST https://localhost:3002/users
+Content-Type: application/json
+
+{
+    "mitgliedsid": "2",
+    "username": "newuser",
+    "passwort": "{{newUserPassword}}",
+    "rolle": "THEKENDIENST"
+}
+
+### DELETE User
+DELETE https://localhost:3002/users/newuser
+
+### GET Person
+GET https://localhost:3002/personen
+
+### GET Person Details
+GET https://localhost:3002/personen/2
+
+###POST new Person
+POST https://localhost:3002/personen
+Content-Type: application/json
+
+{
+  "vorname": "DEL",
+  "nachname": "Person",
+  "rolle": "MITGLIED"
+}
+
+### GET Mitglieder
+GET https://localhost:3002/mitglieder
+
+### GET Mitglieder Details
+GET https://localhost:3002/mitglieder/2
+
+###POST new Mitglieder
+POST https://localhost:3002/mitglieder
+Content-Type: application/json
+
+{
+  "vorname": "DEL",
+  "nachname": "Person"
+}
+
+### GET Gaeste
+GET https://localhost:3002/gaeste
+
+### GET Gaeste Details
+GET https://localhost:3002/gaeste/5
+
+###POST new Gast
+POST https://localhost:3002/gaeste
+Content-Type: application/json
+
+{
+  "vorname": "Gast",
+  "nachname": "Person"
+}

@@ -1,0 +1,79 @@
+//ANWESENHEIT.http
+### Login-Test
+POST https://localhost:3002/login
+Content-Type: application/json
+
+{
+  "username": "admin",
+  "password": "{{password}}"
+}
+
+### Login-Test
+POST https://localhost:3002/logout
+
+### Variables
+@mitgliedsid = 3
+@datum = 2025-06-24
+### GET Anwesenheiten
+GET https://localhost:3002/anwesenheiten
+
+### POST Anwesenheit
+POST https://localhost:3002/anwesenheiten
+Content-Type: application/json
+
+{
+  "mitgliedsid": 3,
+  "datum": "2025-06-24",
+  "schiessgebuehr": 0
+}
+
+### GET Anwesenheiten Mitglied
+GET https://localhost:3002/anwesenheiten/mitglied/{{mitgliedsid}}
+
+### GET Anwesenheiten Mitglied Datum
+GET https://localhost:3002/anwesenheiten/mitglied/{{mitgliedsid}}/datum/{{datum}}
+
+### PUT Anwesenheiten Mitglied Datum
+PUT https://localhost:3002/anwesenheiten/mitglied/{{mitgliedsid}}/datum/{{datum}}
+Content-Type: application/json
+
+{
+  "schiessgebuer": 0
+}
+
+### DELETE Anwesenheiten Mitglied Datum
+DELETE https://localhost:3002/anwesenheiten/mitglied/{{mitgliedsid}}/datum/{{datum}}
+
+### Anwesenheit Datum
+GET https://localhost:3002/anwesenheiten/datum/2025-06-24
+
+### GET Anwesenheiten Mitglied Verkaeufe
+GET https://localhost:3002/anwesenheiten/mitglied/{{mitgliedsid}}/verkaeufe
+
+### POST Anwesenheiten Mitglied Verkaeufe
+POST https://localhost:3002/anwesenheiten/mitglied/{{mitgliedsid}}/verkaeufe
+Content-Type: application/json
+
+{
+  "produktid": 1,
+  "menge": 1,
+  "rabatt": 0,
+  "datum": "2025-06-24"
+}
+
+### GET Anwesenheiten Mitglied Verkaeufe Datum
+GET https://localhost:3002/anwesenheiten/mitglied/{{mitgliedsid}}/datum/{{datum}}/verkaeufe
+
+### GET Anwesenheiten Mitglied Verkaeufe Datum Kosten
+GET https://localhost:3002/anwesenheiten/mitglied/{{mitgliedsid}}/datum/{{datum}}/verkaeufe/kosten
+
+### GET Anwesenheiten Mitglied Kaliber Datum
+GET https://localhost:3002/anwesenheiten/mitglied/{{mitgliedsid}}/datum/{{datum}}/kaliber
+
+### POST Anwesenheiten Mitglieder Kaliber Datum
+POST https://localhost:3002/anwesenheiten/mitglied/{{mitgliedsid}}/datum/{{datum}}/kaliber
+Content-Type: application/json
+
+{
+  "kaliberid": 1
+}

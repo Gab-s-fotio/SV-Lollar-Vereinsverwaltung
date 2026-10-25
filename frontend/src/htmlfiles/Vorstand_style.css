@@ -1,0 +1,26 @@
+body {
+    font-family: sans-serif;
+    background: #f2f2f2;
+    margin: 0;
+}
+
+.tabs {
+    background: #2d3e50;
+    padding: 1rem;
+    display: flex;
+    gap: 1rem;
+}
+
+.tabs button {
+    background: #ffffff;
+    color: #2d3e50;
+    border: none;
+    padding: 0.5rem 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+#tab-content {
+    padding: 2rem;
+}

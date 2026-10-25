@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="stylesheet" href="general_style.css" />
+    <link rel="stylesheet" href="Kasse_style.css" />
+    <title>Theke – SV Lollar</title>
+</head>
+<body>
+<div id="app">
+    <div class="sidebar">
+        <div>
+            <h2>SV Lollar</h2>
+            <ul>
+                <li onclick="loadPage('kasse')">Kasse</li>
+                <li onclick="loadPage('Bedürfnisse verwalten')"> Bedürfnisse verwalten </li>
+                <li onclick="loadPage('Tagesabschluss')">Tagesabschluss</li>
+            </ul>
+        </div>
+        <div><li onclick="loadPage('vorstand')">Vorstand</li></div>
+    </div>
+
+    <div class="content">
+        <h1>Thekenbereich</h1>
+        <table id="thekeTable">
+            <thead>
+            <tr>
+                <th>Person</th>
+                <th>Disziplin</th>
+                <th>Munition</th>
+                <th>Getränke</th>
+                <th>Snacks</th>
+                <th>Sonstiges</th>
+                <th>Betrag (€)</th>
+            </tr>
+            </thead>
+            <tbody id="thekeBody">
+            <!-- Dynamisch befüllt -->
+            </tbody>
+        </table>
+
+        <button class="add-button" onclick="openAddPersonDialog()">+ Person hinzufügen</button>
+    </div>
+
+    <!-- Modal zur Auswahl von Mitglied oder Gast -->
+    <div id="addPersonModal" class="modal-overlay">
+        <div class="modal">
+            <h2>Mitglied auswählen</h2>
+            <select id="memberSelect"></select>
+            <div class="modal-buttons">
+                <button onclick="confirmAddMember()">Hinzufügen</button>
+                <button onclick="closeModal()">Abbrechen</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="personChoiceModal" class="modal-overlay">
+        <div class="modal">
+            <h2>Person hinzufügen</h2>
+            <p>Möchtest du ein Mitglied oder einen Gast hinzufügen?</p>
+            <div class="modal-buttons">
+                <button onclick="choosePersonType('mitglied')">Mitglied</button>
+                <button onclick="choosePersonType('gast')">Gast</button>
+                <button onclick="closeModal()">Abbrechen</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal zum Hinzufügen von Items-->
+    <div class="modal-overlay" id="itemSelectionModal">
+        <div class="modal">
+            <h3>Artikel auswählen</h3>
+            <select id="itemSelect" ></select>
+
+            <h3>Menge:</h3>
+            <input id="itemQuantity" type="number" min="1" value="1" />
+            <br>
+            <div>
+                <label for="freeToggle">
+                    <input type="checkbox" id="freeToggle" />
+                    Kostenlos (100% Rabatt)
+                </label>
+            </div>
+            <button onclick="confirmAddItem()" style="margin-right: 1rem;">Hinzufügen</button>
+            <button onclick="closeModal()">Abbrechen</button>
+        </div>
+    </div>
+
+
+    <script src="../javascriptfiles/kasse.js"></script>
+    <script src="../javascriptfiles/main.js" defer></script>
+</div>
+</body>
+</html>
